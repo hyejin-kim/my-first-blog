@@ -1,0 +1,30 @@
+apiVersion: apps/v1beta2
+kind: Deployment
+metadata:
+  name: k8s-django-deployment
+  labels:
+    app: k8s-django-sampleapp
+spec:
+  replicas: 2
+  selector: 
+    matchLabels:
+      app: k8s-django-sampleapp
+  template:   
+    metadata:
+      labels:
+        app: k8s-django-sampleapp
+    spec:
+      containers:
+      - name: k8s-django-sampleapp 
+        image: idock.daumkakao.io/grace_k0912/k8s-django-sample:1.2
+        imagePullPolicy: IfNotPresent
+        ports:
+          - containerPort: 8000
+        volumeMounts:
+        - mountPath: /test-vol
+          name: django-volume
+      volumes:
+      - name: django-volume
+        hostPath:
+          path: /data
+          type: Directory

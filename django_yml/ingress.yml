@@ -1,0 +1,16 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: django-sample-ingress
+  namespace: default
+  annotations:
+    ingress.kubernetes.io/rewrite-target: /django
+spec:
+  rules:
+  - host: ingress-django.ing.grace.k8s.9rum.cc 
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: django-sample-svc
+          servicePort: 8080

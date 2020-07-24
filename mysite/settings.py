@@ -25,7 +25,7 @@ SECRET_KEY = 'c+kn*-ueicod)+=d8(v9db^n!0ye^h#_!_whb$xzn(ecmbd-!m'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', '.pythonanywhere.com']
+ALLOWED_HOSTS = ['127.0.0.1', '.pythonanywhere.com', 'ingress-django.ing.grace.k8s.9rum.cc']
 
 
 # Application definition
